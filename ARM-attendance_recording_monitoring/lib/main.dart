@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -11,35 +10,49 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return MaterialApp(
-      title: 'ARM',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(appBar: AppBar(
-        leading:const IconButton(
-            icon: Icon(Icons.menu),
-            tooltip: 'Navigation menu',
-            onPressed: null, // null disables the button
-          ),
+    return MaterialApp( 
+      home:Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.lime[800],
         title:const Text('ARM Attendance Recording and Monitoring')
+  
       ),
-      body:const Center(
-        child: Text('Hello world'
-        'Welcome to ARM'),
+      body:Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children:[
+              Container(
+              child: const Text('Login'),
+            ),
+              Container(
+              child: const Text('About us'),
+            ),
+              Container(
+              child: const Text('Report Grievances'),
+            ),
+            ]
+          ),
+          Container(
+            constraints: BoxConstraints.expand(
+              height: 200.0,
+            ),
+            decoration:BoxDecoration(image:DecorationImage(
+              image:NetworkImage("https://pict.edu/images/slider/home1/1.jpg"),
+            fit: BoxFit.cover),
+            ),),
+          Container(
+            decoration:const  BoxDecoration(color: Colors.red),
+            child: const Text('Welcome to ARM'),),
+          Container(
+            decoration: const BoxDecoration(color: Colors.green),
+            child:const Text('PBL project by:'),),
+          ],
         
         
-      ),),
-    );
+      )));
   }
 }
 
