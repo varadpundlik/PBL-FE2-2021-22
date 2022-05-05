@@ -23,7 +23,7 @@ class TutorialHome extends StatelessWidget {
           tooltip: 'Navigation menu',
           onPressed: null,
         ),
-        title: const Text('Example title'),
+        title: const Text('ARM'),
         actions: const [
           IconButton(
             icon: Icon(Icons.search),
