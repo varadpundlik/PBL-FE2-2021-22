@@ -32,8 +32,20 @@ class TutorialHome extends StatelessWidget {
           ),
         ],
       ),
+     bottomNavigationBar,: Row(
+        Expanded(
+          child:Text('Login'),
+        ),
+        Expanded(
+          child:Text('About us') ,
+          ),
+        Expanded(
+          child:Text('Report Grievances') ,
+          ),
+      ),
       // body is the majority of the screen.
       body: const Center(
+        child: 
         child: Text('Hello, world!'),
       ),
       floatingActionButton: const FloatingActionButton(
