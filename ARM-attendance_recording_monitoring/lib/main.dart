@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 void main() {
-  runApp(const MyApp());
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: const MyApp(),
+    theme: ThemeData(
+      brightness: Brightness.dark,
+    ),));
 }
 
 class MyApp extends StatelessWidget {
@@ -10,26 +15,49 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return MaterialApp( 
-      debugShowCheckedModeBanner: false,
-      theme:ThemeData(
-        brightness: Brightness.dark,
-      ),
-      home:Scaffold( 
+    return Scaffold( 
       appBar: AppBar(
         backgroundColor: Colors.lime[800],
-        leading: Image.asset("assets/Images/ARM logo.png"),
+        // leading: Image.asset("assets/Images/ARM logo.png"),
         title:const Text('ARM Attendance Recording''\n'' and Monitoring'),
-        actions: <Widget>[
-          IconButton(
-            tooltip: 'Menu',
-            onPressed:(){
-            //
-          }, icon:const Icon(Icons.menu),)
-        ],
-        
-  
-      ),
+),
+      drawer:Drawer(
+                child: ListView( 
+                  padding: EdgeInsets.zero,
+                  children: [
+                    DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.lime[800],
+              ),
+              child: Text('Menu'),
+            ),
+            ListTile(
+              title:const Text('Home'),
+              onTap: (){Navigator.pop(context);},
+            ),
+            ListTile(
+              title: const Text('Login'),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()),);
+              },
+            ),
+            ListTile(
+              title: const Text('About ARM'),
+              onTap:() {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutARM()),);
+              },),
+            ListTile(
+              title: const Text('About us'),
+              onTap:() {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutUS()),);
+              },),
+              ListTile(
+              title: const Text('Help'),
+              onTap:() {
+                Navigator.pop(context);
+              },),
+                ],),
+              ),
       body:Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,41 +71,94 @@ class MyApp extends StatelessWidget {
             fit: BoxFit.cover,
             ),
           ),
-            child:const Text('Welcome to arm') // Foreground widget here
+            child:const Text('Welcome to arm',) // Foreground widget here
           ),
           Container(
             child:const Text('PBL project by:''\n''10241-Shubham Dadas''\n''10242-Varad Pundlik''\n''10243-Ankit Patne''\n''10244-Aman Upganlawar''\n''10245-Vedant Barve'),),
           ],
-          
-        
-        
       ),
-      floatingActionButton:  FloatingActionButton(
-            tooltip: 'Login',
-            child:Text('Login'),
-            backgroundColor: Colors.lime,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.lime,
+        child:const Text('Login'),
             onPressed:(){
             Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()),);
           },
-
-            ),));
+      ),
+      );
   }
 }
 class Login extends StatelessWidget{
   const Login({Key? key}) : super(key: key);
-
+@override
   Widget build(BuildContext context){
-    return MaterialApp(
-      theme: ThemeData(),
-      home: Scaffold(
-      body: Center(
-        child: ElevatedButton(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.lime[800],
+        leading: Image.asset("assets/Images/ARM logo.png"),
+        title:const Text('ARM Attendance Recording''\n'' and Monitoring'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text('Login Page')
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.lime,
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text('Go back!'),
-        ),)
-    ),
-    );
+          child:const Text('Home'),
+        ),);
+  }
+}
+class AboutARM extends StatelessWidget{
+  const AboutARM ({Key? key}) : super(key: key);
+@override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.lime[800],
+        leading: Image.asset("assets/Images/ARM logo.png"),
+        title:const Text('ARM Attendance Recording''\n'' and Monitoring'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text('About ARM'),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.lime,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child:const Text('Home'),
+        ),);
+  }
+}
+class AboutUS extends StatelessWidget{
+  const AboutUS({Key? key}) : super(key: key);
+@override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.lime[800],
+        leading: Image.asset("assets/Images/ARM logo.png"),
+        title:const Text('ARM Attendance Recording''\n'' and Monitoring'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Text('About us'),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.lime,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child:const Text('Home'),
+        ),);
   }
 }
