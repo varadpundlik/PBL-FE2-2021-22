@@ -6,9 +6,11 @@ import 'help.dart';
 
 void main() {
   runApp(MaterialApp(
+    
     debugShowCheckedModeBanner: false,
     home: const MyApp(),
     theme: ThemeData(
+      brightness: Brightness.dark
     ),
   ));
 }
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.tealAccent[400],
+                color: Colors.tealAccent[400]
               ),
               child: const Text('Menu'),
             ),
@@ -112,13 +114,30 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Roboto'
           ),),
           Container(
+            margin: const EdgeInsets.only(top: 20.0, bottom: 20.0),
+            child: Text('ATTENDANCE RECORDING JUST BECAME SMARTER'),
+
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 20.0, bottom: 20.0),
+            child:Text('AN INNOVATION FOR THE CLASSROOMS'),
+
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 20.0, bottom: 20.0),
+            child:Text('LET’S TAKE A STEP TOWARDS INNOVATION')
+
+          ),
+          Container(
             width: double.infinity,
+            margin: const EdgeInsets.only(top: 20.0, bottom: 20.0),
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(
                 Radius.circular(20)
               ),
               color: Colors.tealAccent[400]
             ),
+            
             child: const Text('PBL project by:'
                 '\n'
                 '10241-Shubham Dadas'
@@ -131,7 +150,7 @@ class MyApp extends StatelessWidget {
                 '\n'
                 '10245-Vedant Barve',textAlign: TextAlign.center,),
           ),
- 
+          
         ],
       ),
       floatingActionButton: FloatingActionButton(
