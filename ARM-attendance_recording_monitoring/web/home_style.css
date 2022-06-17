@@ -1,6 +1,7 @@
 body{
     background:linear-gradient(to bottom  right,rgb(209, 175, 21),rgb(233, 215, 138)) ;
     background-repeat: repeat;
+    background:image();
     
 }
 #menubar{

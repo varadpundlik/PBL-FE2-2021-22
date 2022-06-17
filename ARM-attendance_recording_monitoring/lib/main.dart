@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'login.dart';
+import 'about_arm.dart';
+import 'about_us.dart';
+import 'help.dart';
+
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: const MyApp(),
     theme: ThemeData(
-      brightness: Brightness.dark,
-    ),));
+    ),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,151 +19,132 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
-    return Scaffold( 
+    final size = MediaQuery.of(context).size;
+    return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lime[800],
-        // leading: Image.asset("assets/Images/ARM logo.png"),
-        title:const Text('ARM Attendance Recording''\n'' and Monitoring'),
-),
-      drawer:Drawer(
-                child: ListView( 
-                  padding: EdgeInsets.zero,
-                  children: [
-                    DrawerHeader(
+        backgroundColor: Colors.tealAccent[400],
+         leading: Image.asset("assets/Images/ARM logo.png"),
+        title: const Text('ARM Attendance Recording' '\n' ' and Monitoring'),
+      ),
+      endDrawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.lime[800],
+                color: Colors.tealAccent[400],
               ),
-              child: Text('Menu'),
+              child: const Text('Menu'),
             ),
             ListTile(
-              title:const Text('Home'),
-              onTap: (){Navigator.pop(context);},
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+              },
             ),
             ListTile(
               title: const Text('Login'),
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()),);
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Login()),
+                );
               },
             ),
             ListTile(
               title: const Text('About ARM'),
-              onTap:() {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutARM()),);
-              },),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AboutARM()),
+                );
+              },
+            ),
             ListTile(
               title: const Text('About us'),
-              onTap:() {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutUS()),);
-              },),
-              ListTile(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AboutUS()),
+                );
+              },
+            ),
+            ListTile(
               title: const Text('Help'),
-              onTap:() {
-                Navigator.pop(context);
-              },),
-                ],),
-              ),
-      body:Column(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Help()),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 200,
-            width: double.infinity,
-            decoration: const BoxDecoration(
-            image: DecorationImage(
-            image: AssetImage("assets/Images/PICT.jpg"),
-            fit: BoxFit.cover,
-            ),
-          ),
-            child:const Text('Welcome to arm',) // Foreground widget here
-          ),
+              height: size.height * 0.5,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/Images/PICT.jpg"),
+                  fit: BoxFit.cover,
+                  opacity: 0.6,
+                ),
+              ),
+              child:const Align(
+                child: Text(
+                'Welcome to ARM',style: TextStyle(
+                fontSize: 30,
+                letterSpacing: 0.5,
+                fontFamily: 'Roboto'
+                ),
+                textAlign: TextAlign.center,
+
+              ),), // Foreground widget here
+              ),
+          const Text('Hello', style: TextStyle(
+            color: Colors.teal,
+            fontSize: 40,
+            letterSpacing: 0.5,
+            fontFamily: 'Roboto'
+          ),),
           Container(
-            child:const Text('PBL project by:''\n''10241-Shubham Dadas''\n''10242-Varad Pundlik''\n''10243-Ankit Patne''\n''10244-Aman Upganlawar''\n''10245-Vedant Barve'),),
-          ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.lime,
-        child:const Text('Login'),
-            onPressed:(){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()),);
-          },
-      ),
-      );
-  }
-}
-class Login extends StatelessWidget{
-  const Login({Key? key}) : super(key: key);
-@override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.lime[800],
-        leading: Image.asset("assets/Images/ARM logo.png"),
-        title:const Text('ARM Attendance Recording''\n'' and Monitoring'),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text('Login Page')
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(20)
+              ),
+              color: Colors.tealAccent[400]
+            ),
+            child: const Text('PBL project by:'
+                '\n'
+                '10241-Shubham Dadas'
+                '\n'
+                '10242-Varad Pundlik'
+                '\n'
+                '10243-Ankit Patne'
+                '\n'
+                '10244-Aman Upganlawar'
+                '\n'
+                '10245-Vedant Barve',textAlign: TextAlign.center,),
+          ),
+ 
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.lime,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child:const Text('Home'),
-        ),);
-  }
-}
-class AboutARM extends StatelessWidget{
-  const AboutARM ({Key? key}) : super(key: key);
-@override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.lime[800],
-        leading: Image.asset("assets/Images/ARM logo.png"),
-        title:const Text('ARM Attendance Recording''\n'' and Monitoring'),
+        backgroundColor: Colors.tealAccent[400],
+        child: const Text('Login'),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Login()),
+          );
+        },
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text('About ARM'),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.lime,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child:const Text('Home'),
-        ),);
-  }
-}
-class AboutUS extends StatelessWidget{
-  const AboutUS({Key? key}) : super(key: key);
-@override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.lime[800],
-        leading: Image.asset("assets/Images/ARM logo.png"),
-        title:const Text('ARM Attendance Recording''\n'' and Monitoring'),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text('About us'),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.lime,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child:const Text('Home'),
-        ),);
+    );
   }
 }
