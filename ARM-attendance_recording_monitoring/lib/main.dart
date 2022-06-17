@@ -107,7 +107,6 @@ class MyApp extends StatelessWidget {
               ),), // Foreground widget here
               ),
           const Text('Hello', style: TextStyle(
-            color: Colors.teal,
             fontSize: 40,
             letterSpacing: 0.5,
             fontFamily: 'Roboto'
@@ -115,7 +114,7 @@ class MyApp extends StatelessWidget {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
+              borderRadius: const BorderRadius.all(
                 Radius.circular(20)
               ),
               color: Colors.tealAccent[400]
