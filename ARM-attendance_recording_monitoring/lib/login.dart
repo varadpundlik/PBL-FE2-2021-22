@@ -6,16 +6,25 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:  Colors.tealAccent[400],
-        leading: Image.asset("assets/Images/ARM logo.png"),
+        backgroundColor: Colors.tealAccent[400],
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
         title: const Text('ARM Attendance Recording' '\n' ' and Monitoring'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: const [Text('Login Page')],
+        children: const [
+          Text(
+            'Login Page',
+            style: TextStyle(
+                fontSize: 40, letterSpacing: 0.5, fontFamily: 'Roboto'),
+          )
+        ],
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor:  Colors.tealAccent[400],
+        backgroundColor: Colors.blueGrey,
         onPressed: () {
           Navigator.pop(context);
         },
@@ -23,5 +32,4 @@ class Login extends StatelessWidget {
       ),
     );
   }
-
 }
