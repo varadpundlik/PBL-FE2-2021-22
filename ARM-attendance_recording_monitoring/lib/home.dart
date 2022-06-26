@@ -13,7 +13,7 @@ class Home extends StatelessWidget{
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.tealAccent[400],
-          leading: Image.asset("assets/Images/ARM logo.png"),
+          leading:Image.asset("assets/Images/ARM logo.png"),
           title: const Text('ARM Attendance Recording' '\n' ' and Monitoring'),
         ),
         endDrawer: Drawer(
@@ -27,7 +27,10 @@ class Home extends StatelessWidget{
               ListTile(
                 title: const Text('Home'),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Home()),
+                  );
                 },
               ),
               ListTile(
