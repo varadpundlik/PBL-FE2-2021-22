@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'home.dart';
 import 'login.dart';
 import 'about_arm.dart';
 import 'about_us.dart';
@@ -13,187 +13,135 @@ void main() {
   ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+  @override
+  MyAppState createState() => MyAppState();
+}
 
-  // This widget is the root of your application.
+class MyAppState extends State<MyApp> {
+  int pageIndex=0;
+
+  final pages = [
+    const Home(),
+    const Login(),
+    const AboutARM(),
+    const AboutUS(),
+    const Help(),
+  ];
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.tealAccent[400],
-          leading: Image.asset("assets/Images/ARM logo.png"),
-          title: const Text('ARM Attendance Recording' '\n' ' and Monitoring'),
-        ),
-        endDrawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                decoration: BoxDecoration(color: Colors.tealAccent[400]),
-                child: const Text('Menu'),
-              ),
-              ListTile(
-                title: const Text('Home'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: const Text('Login'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Login()),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('About ARM'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const AboutARM()),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('About us'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const AboutUS()),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Help'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Help()),
-                  );
-                },
-              ),
-            ],
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                height: size.height * 0.5,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  image: DecorationImage(
-                    image: AssetImage("assets/Images/PICT.jpg"),
-                    fit: BoxFit.cover,
-                    opacity: 0.6,
+      body: pages[pageIndex],
+      bottomNavigationBar: buildMyNavBar(context),
+        );
+  }
+  Container buildMyNavBar(BuildContext context) {
+    return Container(
+      height: 60,
+      decoration: BoxDecoration(
+        color: Colors.tealAccent[400],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          IconButton(
+            enableFeedback: false,
+            onPressed: () {
+              setState(() {
+                pageIndex = 0;
+              });
+            },
+            icon: pageIndex == 0
+                ? const Icon(
+                    Icons.home_filled,
+                    color: Colors.white,
+                    size: 35,
+                  )
+                : const Icon(
+                    Icons.home_outlined,
+                    color: Colors.white,
+                    size: 35,
                   ),
-                ),
-                child: Align(
-                  child: Text(
-                    'Welcome to ARM',
-                    style: GoogleFonts.pacifico(
-                        fontSize: 30,
-                        letterSpacing: 0.5,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.start,
-                  ),
-                ), // Foreground widget here
-              ),
-              Text(
-                'Hello',
-                style: GoogleFonts.acme(fontSize: 40, letterSpacing: 0.5),
-              ),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.only(top: 30.0, bottom: 30.0),
-                decoration: const BoxDecoration(color: Colors.blueGrey),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('ATTENDANCE RECORDING JUST BECAME SMARTER',
-                        style: GoogleFonts.acme()),
-                    Container(
-                        width: 50,
-                        height: 50,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                  'https://freesvg.org/img/1550658029.png')),
-                        )),
-                  ],
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.only(top: 30.0, bottom: 30.0),
-                decoration: BoxDecoration(color: Colors.orange[200]),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                        width: 50,
-                        height: 50,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                  'https://freesvg.org/img/leady_teacher_African03.png')),
-                        )),
-                    Text('AN INNOVATION FOR THE CLASSROOMS',
-                        style: GoogleFonts.acme()),
-                  ],
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                padding: const EdgeInsets.only(top: 30.0, bottom: 30.0),
-                decoration: const BoxDecoration(color: Colors.grey),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('LETS TAKE A STEP TOWARDS INNOVATION',
-                        style: GoogleFonts.acme()),
-                    Container(
-                        width: 50,
-                        height: 50,
-                        decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                  'https://cdn.iconscout.com/icon/premium/png-256-thumb/innovation-1660771-1409458.png')),
-                        )),
-                  ],
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                margin: const EdgeInsets.only(top: 20.0),
-                padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(20)),
-                    color: Colors.tealAccent[400]),
-                child: const Text(
-                  'PBL project by: B2-Group4_21-22',
-                  textAlign: TextAlign.center,
-                ),
-              ),
-            ],
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.blueGrey,
-          child: const Text('Login'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const Login()),
-            );
-          },
-        ));
+          IconButton(
+            enableFeedback: false,
+            onPressed: () {
+              setState(() {
+                pageIndex = 1;
+              });
+            },
+            icon: pageIndex == 1
+                ? const Icon(
+                    Icons.login,
+                    color: Colors.white,
+                    size: 35,
+                  )
+                : const Icon(
+                    Icons.login_outlined,
+                    color: Colors.white,
+                    size: 35,
+                  ),
+          ),
+          IconButton(
+            enableFeedback: false,
+            onPressed: () {
+              setState(() {
+                pageIndex = 2;
+              });
+            },
+            icon: pageIndex == 2
+                ? const Icon(
+                    Icons.info_rounded,
+                    color: Colors.white,
+                    size: 35,
+                  )
+                : const Icon(
+                    Icons.info_outlined,
+                    color: Colors.white,
+                    size: 35,
+                  ),
+          ),
+          IconButton(
+            enableFeedback: false,
+            onPressed: () {
+              setState(() {
+                pageIndex = 3;
+              });
+            },
+            icon: pageIndex == 3
+                ? const Icon(
+                    Icons.person,
+                    color: Colors.white,
+                    size: 35,
+                  )
+                : const Icon(
+                    Icons.person_outline,
+                    color: Colors.white,
+                    size: 35,
+                  ),
+          ),
+          IconButton(
+            enableFeedback: false,
+            onPressed: () {
+              setState(() {
+                pageIndex = 4;
+              });
+            },
+            icon: pageIndex == 4
+                ? const Icon(
+                    Icons.help_rounded,
+                    color: Colors.white,
+                    size: 35,
+                  )
+                : const Icon(
+                    Icons.help_outline,
+                    color: Colors.white,
+                    size: 35,
+                  ),
+          ),
+        ],
+      ),
+    );
   }
 }

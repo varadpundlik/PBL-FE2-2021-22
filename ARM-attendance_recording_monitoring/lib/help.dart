@@ -107,18 +107,6 @@ class Help extends StatelessWidget {
               child: Text('6.Exit the room.', style: GoogleFonts.acme()),
             ),
           ),
-          Container(
-                width: double.infinity,
-                margin: const EdgeInsets.only(top: 20.0),
-                padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
-                decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.all(Radius.circular(20)),
-                    color: Colors.tealAccent[400]),
-                child: const Text(
-                  'PBL project by: B2-Group4_21-22',
-                  textAlign: TextAlign.center,
-                ),
-              ),
         ],
       ),),
       floatingActionButton: FloatingActionButton(
