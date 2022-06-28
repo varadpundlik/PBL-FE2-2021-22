@@ -1,76 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'login.dart';
-import 'about_arm.dart';
-import 'about_us.dart';
-import 'help.dart';
 
-class Home extends StatelessWidget{
+class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
-  @override 
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.tealAccent[400],
-          leading:Image.asset("assets/Images/ARM logo.png"),
+          leading: Image.asset("assets/Images/ARM logo.png"),
           title: const Text('ARM Attendance Recording' '\n' ' and Monitoring'),
-        ),
-        endDrawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              DrawerHeader(
-                decoration: BoxDecoration(color: Colors.tealAccent[400]),
-                child: const Text('Menu'),
-              ),
-              ListTile(
-                title: const Text('Home'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Home()),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Login'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Login()),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('About ARM'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const AboutARM()),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('About us'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const AboutUS()),
-                  );
-                },
-              ),
-              ListTile(
-                title: const Text('Help'),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Help()),
-                  );
-                },
-              ),
-            ],
-          ),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -163,7 +104,6 @@ class Home extends StatelessWidget{
                   ],
                 ),
               ),
-  
             ],
           ),
         ),
@@ -177,4 +117,5 @@ class Home extends StatelessWidget{
             );
           },
         ));
-}}
+  }
+}

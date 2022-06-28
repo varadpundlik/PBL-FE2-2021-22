@@ -20,7 +20,7 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  int pageIndex=0;
+  int pageIndex = 0;
 
   final pages = [
     const Home(),
@@ -34,8 +34,9 @@ class MyAppState extends State<MyApp> {
     return Scaffold(
       body: pages[pageIndex],
       bottomNavigationBar: buildMyNavBar(context),
-        );
+    );
   }
+
   Container buildMyNavBar(BuildContext context) {
     return Container(
       height: 60,

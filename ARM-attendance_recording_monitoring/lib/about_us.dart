@@ -1,7 +1,6 @@
 import 'package:attendance_recordin_monitoring/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'home.dart';
 
 class AboutUS extends StatelessWidget {
   const AboutUS({Key? key}) : super(key: key);
@@ -13,11 +12,11 @@ class AboutUS extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MyApp()),
-                  );
-                },
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyApp()),
+            );
+          },
         ),
         title: const Text('ARM Attendance Recording' '\n' ' and Monitoring'),
       ),
@@ -85,11 +84,11 @@ class AboutUS extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blueGrey,
         onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Home()),
-                  );
-                },
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const MyApp()),
+          );
+        },
         child: const Text('Home'),
       ),
     );

@@ -14,11 +14,11 @@ class AboutARM extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const MyApp()),
-                  );
-                },
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const MyApp()),
+            );
+          },
         ),
         title: const Text('ARM Attendance Recording' '\n' ' and Monitoring'),
       ),
@@ -48,15 +48,14 @@ class AboutARM extends StatelessWidget {
                   style: GoogleFonts.acme()),
             ),
             Text(
-                  'Noise in roll calling'
-                  '\n'
-                  'Students may not be attentive'
-                  '\n'
-                  'Wastage of paper'
-                  '\n'
-                  'Chances of misplacing',
-                  style: GoogleFonts.acme()),
-            
+                'Noise in roll calling'
+                '\n'
+                'Students may not be attentive'
+                '\n'
+                'Wastage of paper'
+                '\n'
+                'Chances of misplacing',
+                style: GoogleFonts.acme()),
             Container(
               margin: const EdgeInsets.all(10),
               child: Text(
@@ -66,8 +65,8 @@ class AboutARM extends StatelessWidget {
             Container(
               margin: const EdgeInsets.all(10),
               padding: const EdgeInsets.all(30.0),
-              decoration:  BoxDecoration(
-                borderRadius:const BorderRadius.all(Radius.circular(20)),
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 color: Colors.orange[200],
               ),
               child: Text(
@@ -81,7 +80,7 @@ class AboutARM extends StatelessWidget {
             Container(
               margin: const EdgeInsets.all(10),
               padding: const EdgeInsets.all(30.0),
-              decoration:const BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
                 color: Colors.grey,
               ),
@@ -95,18 +94,17 @@ class AboutARM extends StatelessWidget {
                   ' Firebase: It is a platform developed by Google for creating mobile and web applications.',
                   style: GoogleFonts.acme()),
             ),
-    
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blueGrey,
         onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Home()),
-                  );
-                },
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Home()),
+          );
+        },
         child: const Text('Home'),
       ),
     );
