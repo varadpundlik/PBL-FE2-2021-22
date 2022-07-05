@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'login.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+final Uri _url = Uri.parse('https://attendance-recordingmonitoring.web.app/');
+
+void _launchUrl() async {
+  if (!await launchUrl(_url)) throw 'Could not launch $_url';
+}
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
   @override
@@ -107,15 +112,10 @@ class Home extends StatelessWidget {
             ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: const FloatingActionButton(
           backgroundColor: Colors.blueGrey,
-          child: const Text('Login'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const Login()),
-            );
-          },
+          child: Text('Login'),
+          onPressed: _launchUrl,
         ));
   }
 }

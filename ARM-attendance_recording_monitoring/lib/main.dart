@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'home.dart';
 import 'login.dart';
 import 'about_arm.dart';
 import 'about_us.dart';
 import 'help.dart';
 
+final Uri _url = Uri.parse('https://attendance-recordingmonitoring.web.app/');
 void main() {
+  setUrlStrategy(PathUrlStrategy());
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     home: const MyApp(),
@@ -29,6 +34,7 @@ class MyAppState extends State<MyApp> {
     const AboutUS(),
     const Help(),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,11 +73,7 @@ class MyAppState extends State<MyApp> {
           ),
           IconButton(
             enableFeedback: false,
-            onPressed: () {
-              setState(() {
-                pageIndex = 1;
-              });
-            },
+            onPressed:_launchUrl,
             icon: pageIndex == 1
                 ? const Icon(
                     Icons.login,
@@ -145,4 +147,7 @@ class MyAppState extends State<MyApp> {
       ),
     );
   }
+}
+void _launchUrl() async {
+  if (!await launchUrl(_url)) throw 'Could not launch $_url';
 }

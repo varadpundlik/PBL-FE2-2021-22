@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
-import 'home.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AboutARM extends StatelessWidget {
@@ -102,7 +101,7 @@ class AboutARM extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const Home()),
+            MaterialPageRoute(builder: (context) => const MyApp()),
           );
         },
         child: const Text('Home'),
